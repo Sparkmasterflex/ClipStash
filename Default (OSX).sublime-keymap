@@ -1,0 +1,4 @@
+[
+  { "keys": ["super+shift+c"], "command": "clip_stash_copy" },
+  { "keys": ["super+shift+x"], "command": "clip_stash_cut" }
+]
