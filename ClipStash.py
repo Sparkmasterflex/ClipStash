@@ -17,7 +17,6 @@ class ClipStash(sublime_plugin.TextCommand):
       lineContents = self.view.substr(line) + '\n'
       lines.append(lineContents)
     else:
-      print "not at all"
       for region in self.region_set:
         lines.append(self.view.substr(region))
     return lines
@@ -29,6 +28,8 @@ class ClipStash(sublime_plugin.TextCommand):
 
   def close_edit(self):
     self.clip_board.end_edit(self.edit)
+    self.clip_board.set_read_only(True)
+    self.clip_board.run_command('save')
 
   def paste_in(self, cut=False):
     timestamp = time.strftime("%m-%d-%Y %I:%M:%S")
@@ -62,6 +63,9 @@ class ClipStashCutCommand(ClipStash):
     self.paste_in(True)
 
   def delete_selected(self):
-    for line in self.region_set:
+    if self.region_set[0].empty():
+      line = self.view.line(self.region_set[0])
       self.view.erase(self.edit, line)
-
+    else:
+      for line in self.region_set:
+        self.view.erase(self.edit, line)
