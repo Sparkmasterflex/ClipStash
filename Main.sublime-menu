@@ -1,0 +1,24 @@
+[{
+  "id": "selection",
+  "children":
+  [
+    {
+      "id": "clip_stash",
+      "caption": "ClipStash",
+      "children": [
+        {
+          "caption": "Copy",
+          "command": "clip_stash_copy"
+        },
+        {
+          "caption": "Cut",
+          "command": "clip_stash_cut"
+        },
+        {
+          "caption": "Clear Clipboard",
+          "command": "clip_stash_clear"
+        }
+      ]
+    }
+  ]
+}]

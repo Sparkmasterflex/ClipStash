@@ -1,0 +1,10 @@
+[{
+  "caption": "ClipStash Copy",
+  "command": "clip_stash_copy"
+}, {
+  "caption": "ClipStash Cut",
+  "command": "clip_stash_cut"
+}, {
+  "caption": "ClipStash Clear",
+  "command": "clip_stash_clear"
+}]
