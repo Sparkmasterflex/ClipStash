@@ -23,6 +23,7 @@ class ClipStash(sublime_plugin.TextCommand):
 
   def open_paste_buffer(self):
     self.clip_board = self.window().open_file(CLIPBOARD)
+    self.clip_board.set_read_only(False)
     self.edit = self.clip_board.begin_edit()
 
 
@@ -69,3 +70,9 @@ class ClipStashCutCommand(ClipStash):
     else:
       for line in self.region_set:
         self.view.erase(self.edit, line)
+
+
+# ClipStash Clear Clipboard Command
+class ClipStashClear(ClipStash):
+  def run(self, edit):
+    open(CLIPBOARD, 'w').close()
